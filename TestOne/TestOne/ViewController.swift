@@ -18,8 +18,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     var mData : MyDataModel = MyDataModel()
     
-    
-    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         let tGroup : MyGroupModel = mData.mList[section] as! MyGroupModel
@@ -34,6 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         tCell.textLabel?.text = tCellData.mTitle
         tCell.detailTextLabel?.text = tCellData.mSubTitle
+        tCell.imageView?.image = tGroup.mImage
         
         return tCell
     }
@@ -58,9 +57,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         ChangeColor(sSender : mSegmentedBar!)
         
-        mData.addGroup(sGroup : MyGroupModel.createWithTitle(sTitle: "my data A", withCellNumber: 10))
-        mData.addGroup(sGroup : MyGroupModel.createWithTitle(sTitle: "my data B", withCellNumber: 10))
-        mData.addGroup(sGroup : MyGroupModel.createWithTitle(sTitle: "my data C", withCellNumber: 10))
+        mData.addGroup(sGroup : MyGroupModel.createWithTitle(sTitle: "my data A", withAssetName: "Cocotier", withCellNumber: 10))
+        mData.addGroup(sGroup : MyGroupModel.createWithTitle(sTitle: "my data B", withAssetName: "Shell", withCellNumber: 10))
+        mData.addGroup(sGroup : MyGroupModel.createWithTitle(sTitle: "my data C", withAssetName: "Fish", withCellNumber: 10))
     }
 
     override func didReceiveMemoryWarning() {
