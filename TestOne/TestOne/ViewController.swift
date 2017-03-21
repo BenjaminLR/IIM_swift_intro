@@ -16,21 +16,38 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var mTableView : UITableView?
     
+    var mData : MyDataModel = MyDataModel()
+    
     
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 10
+        let tGroup : MyGroupModel = mData.mList[section] as! MyGroupModel
+        return tGroup.mList.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var tCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        tCell.textLabel?.text = "Mon titre n* \(indexPath.row)"
+        let tCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+        let tGroup : MyGroupModel = mData.mList[indexPath.section] as! MyGroupModel
+        let tCellData : MyCellModel = tGroup.mList[indexPath.row] as! MyCellModel
+        
+        tCell.textLabel?.text = tCellData.mTitle
+        tCell.detailTextLabel?.text = tCellData.mSubTitle
+        
         return tCell
     }
     
+    public func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return mData.mList.count
+    }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        let tGroup : MyGroupModel = mData.mList[section] as! MyGroupModel
+        return tGroup.mTitle
+    }
     
 
     override func viewDidLoad() {
@@ -40,6 +57,10 @@ class ViewController: UIViewController, UITableViewDataSource {
         mTitleLabel?.text = "Benjamin"
         
         ChangeColor(sSender : mSegmentedBar!)
+        
+        mData.addGroup(sGroup : MyGroupModel.createWithTitle(sTitle: "my data A", withCellNumber: 10))
+        mData.addGroup(sGroup : MyGroupModel.createWithTitle(sTitle: "my data B", withCellNumber: 10))
+        mData.addGroup(sGroup : MyGroupModel.createWithTitle(sTitle: "my data C", withCellNumber: 10))
     }
 
     override func didReceiveMemoryWarning() {
