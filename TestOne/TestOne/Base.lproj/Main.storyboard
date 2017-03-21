@@ -21,9 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ia-NK-Ict">
-                                <rect key="frame" x="166" y="51" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ia-NK-Ict">
+                                <rect key="frame" x="119" y="51" width="137" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,14 +44,31 @@
                                     <segment title="Green"/>
                                 </segments>
                                 <connections>
-                                    <action selector="ChangeColor" destination="BYZ-38-t0r" eventType="valueChanged" id="hef-3z-SnH"/>
+                                    <action selector="ChangeColorWithSSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="5da-Cg-3YP"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tO2-cv-SUf">
+                                <rect key="frame" x="24" y="238" width="316" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Black"/>
+                                    <segment title="LigthGrey"/>
+                                    <segment title="Grey"/>
+                                </segments>
+                                <connections>
+                                    <action selector="ChangeColorWithSSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="Q8n-Cy-sDx"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8ia-NK-Ict" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qTY-IM-C5b"/>
+                            <constraint firstItem="8ia-NK-Ict" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="yuY-OY-tBG"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mSegmentedBar" destination="QgG-Fc-oEr" id="nz5-UI-EQF"/>
+                        <outlet property="mSegmentedBarB" destination="tO2-cv-SUf" id="8h4-2W-hpO"/>
                         <outlet property="mTitleLabel" destination="8ia-NK-Ict" id="8ip-rD-HVG"/>
                     </connections>
                 </viewController>
