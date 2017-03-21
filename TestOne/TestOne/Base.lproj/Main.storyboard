@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,17 +28,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGJ-d6-tO2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGJ-d6-tO2">
                                 <rect key="frame" x="164" y="105" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="IamRich" destination="BYZ-38-t0r" eventType="touchUpInside" id="xOy-5w-ezc"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-Fc-oEr">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-Fc-oEr">
                                 <rect key="frame" x="24" y="180" width="316" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Blue"/>
                                     <segment title="Red"/>
@@ -47,9 +46,8 @@
                                     <action selector="ChangeColorWithSSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="5da-Cg-3YP"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tO2-cv-SUf">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tO2-cv-SUf">
                                 <rect key="frame" x="24" y="238" width="316" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Black"/>
                                     <segment title="LigthGrey"/>
@@ -59,16 +57,47 @@
                                     <action selector="ChangeColorWithSSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="Q8n-Cy-sDx"/>
                                 </connections>
                             </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nu2-qs-wMr">
+                                <rect key="frame" x="24" y="292" width="316" height="326"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="fEw-z4-aax">
+                                        <rect key="frame" x="0.0" y="28" width="316" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fEw-z4-aax" id="t1W-gw-qlA">
+                                            <rect key="frame" x="0.0" y="0.0" width="316" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="K7Q-xr-bT5"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="BGJ-d6-tO2" secondAttribute="trailing" constant="149" id="1Ce-gF-b5V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nu2-qs-wMr" secondAttribute="trailing" constant="19" id="1mM-Vl-qLC"/>
+                            <constraint firstItem="tO2-cv-SUf" firstAttribute="top" secondItem="QgG-Fc-oEr" secondAttribute="bottom" constant="30" id="212-wx-rTI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QgG-Fc-oEr" secondAttribute="trailing" constant="19" id="Dv6-Tj-iZy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nu2-qs-wMr" secondAttribute="bottom" constant="49" id="HB3-7V-AW8"/>
+                            <constraint firstItem="tO2-cv-SUf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="TgI-9Z-Qfz"/>
+                            <constraint firstItem="QgG-Fc-oEr" firstAttribute="top" secondItem="BGJ-d6-tO2" secondAttribute="bottom" constant="45" id="dHG-Ad-hnZ"/>
+                            <constraint firstItem="Nu2-qs-wMr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="fXx-Hz-dfQ"/>
+                            <constraint firstItem="QgG-Fc-oEr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="kCe-ey-BNM"/>
                             <constraint firstItem="8ia-NK-Ict" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qTY-IM-C5b"/>
+                            <constraint firstItem="Nu2-qs-wMr" firstAttribute="top" secondItem="tO2-cv-SUf" secondAttribute="bottom" constant="26" id="t8c-vH-cDq"/>
+                            <constraint firstItem="BGJ-d6-tO2" firstAttribute="top" secondItem="8ia-NK-Ict" secondAttribute="bottom" constant="33" id="v9s-zd-cVq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tO2-cv-SUf" secondAttribute="trailing" constant="19" id="x7k-M8-Pyn"/>
+                            <constraint firstItem="BGJ-d6-tO2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="148" id="xFO-7C-HIV"/>
                             <constraint firstItem="8ia-NK-Ict" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="yuY-OY-tBG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mSegmentedBar" destination="QgG-Fc-oEr" id="nz5-UI-EQF"/>
                         <outlet property="mSegmentedBarB" destination="tO2-cv-SUf" id="8h4-2W-hpO"/>
+                        <outlet property="mTableView" destination="Nu2-qs-wMr" id="wNd-2x-LFD"/>
                         <outlet property="mTitleLabel" destination="8ia-NK-Ict" id="8ip-rD-HVG"/>
                     </connections>
                 </viewController>
